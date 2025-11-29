@@ -1,6 +1,12 @@
 const leapYears = function(year) {
-    if((year % 4 === 0 && !(year % 100 === 0))
-        || (year % 4 === 0 && year % 400 === 0))
+    const isDivisibleByFour = year % 4 === 0;
+    const isCentury = year % 100 === 0;
+    const isDivisibleByFourHundred = year % 400 === 0;
+
+    //a leap year is a year that is divisible by four, but isn't a 
+    //century (divisible by 100) unless it's divisible by 400
+    if((isDivisibleByFour && !(isCentury))
+        || (isDivisibleByFour && isDivisibleByFourHundred))
     {
         return true;
     }
